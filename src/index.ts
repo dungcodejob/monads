@@ -1,4 +1,4 @@
-import { Monads } from './option';
+import {Monads} from './option';
 
 interface User {
   id: string;
@@ -22,6 +22,5 @@ const users: User[] = [
 const userId = '1';
 const user = Monads.just(userId)
   .map(id => users.find(item => item.id === id))
+  .do(user => console.log(user))
   .get();
-
-console.log(user);
